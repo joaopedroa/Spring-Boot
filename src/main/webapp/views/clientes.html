@@ -1,0 +1,31 @@
+<form name="formCadastrarCliente">
+	<input  name = "nome" type="text" id = "nomeCliente" ng-model="cliente.nome" required/>
+	<input type="button"  ng-click="inserirCliente()" value="Inserir Cliente"/>
+</form>
+<div class="container">
+  <h2>Clientes</h2>
+  <p>A tabela mostra a lista de todos os clientes</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>     
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="cliente in clientes">
+       <td>{{cliente.id}}</td>
+       <td>{{cliente.nome}}</td>
+       <td>
+       	<button  type="button" class="btn btn-danger" ng-click="deletarCliente(cliente,$index)">Excluir</button>
+       </td>
+       <td>
+       	<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarCliente" ng-click="abrirModal(cliente,$index)">Editar</button>
+       </td>
+      </tr>     
+    </tbody>
+  </table>
+  <div ng-include="'/views/edicaoModal.html'"></div>
+</div>
