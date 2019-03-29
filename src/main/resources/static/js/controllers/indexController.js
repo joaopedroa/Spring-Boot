@@ -1,4 +1,4 @@
-app.controller("indexController",function($scope,$http,PersistService){
+app.controller("indexController",function($scope,$http,PersistService,$location){
 	
 	$scope.clientes = [];
 	$scope.cliente = {};
@@ -18,6 +18,7 @@ app.controller("indexController",function($scope,$http,PersistService){
 				$scope.formCadastrarCliente.$setPristine();
 			});
 			$scope.cliente = {};
+			window.location.href = "/";
 		}else{
 			alert("Campo Obrigatório não preechido.")
 		}
@@ -46,8 +47,17 @@ app.controller("indexController",function($scope,$http,PersistService){
 		$scope.clienteEdit = angular.copy(cliente);		
 		$scope.positionArrayClienteEdit = index;
 	}
+	
+	function listarTodosEstados(){
+		PersistService.buscarTodosEstados().then(data =>{
+			$scope.listaEstados = data.data;
+			$scope.cliente.estado = data.data[0];
+		});
+		
+	}
 
 	$scope.listarTodosClientes();
+	listarTodosEstados();
 	
 	
 });

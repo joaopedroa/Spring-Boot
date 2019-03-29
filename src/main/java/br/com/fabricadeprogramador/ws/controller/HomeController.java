@@ -12,8 +12,5 @@ public class HomeController {
 	public String clientes() {
 		return "index2.html";
 	}
-	@RequestMapping(value= {"/cadastroClientes"})
-	public String cadastroClientes() {
-		return "views/cadastroClientes.html";
-	}
+	
 }

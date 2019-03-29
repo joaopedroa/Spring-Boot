@@ -1,0 +1,24 @@
+<form name='frmCadastroEstado'>
+	<input type="text"  ng-model="form.estado.nomeEstado" placeholder="Digite um estado"/>
+	<input type="submit" ng-click="form.salvarEstado()" value = "Salvar Estado">
+	{{teste}}
+</form>
+
+<div class = "row" style = "text-align:center">
+	<div class = "col-sm-6">
+ <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Estado</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="estado in listaEstados">
+        <td>{{estado.id}}</td>
+        <td>{{estado.nomeEstado}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+  </div>

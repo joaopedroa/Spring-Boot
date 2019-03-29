@@ -16,6 +16,18 @@ app.service("PersistService", function($http){
 	this.editarCliente = function(cliente){
 		return $http.put("http://localhost:8080/alterarCliente",cliente);
 	}
+	
+	this.buscarClientePorId = function(id){
+		return $http.get("/buscarCliente/" + id);
+	}
+	
+	this.salvarEstado = function(estado){
+		return $http.post("http://localhost:8080/salvarEstado",estado);
+	}
+	
+	this.buscarTodosEstados = function(){
+		return $http.get("/buscarTodosEstados");
+	}
 
 	
 

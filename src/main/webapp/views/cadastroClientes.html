@@ -1,4 +1,7 @@
-<form>
-	<input type="text" id = "nomeCliente" ng-model="nomeCliente" />
-	<input type="button"  ng-click="inserirCliente()" value="Inserir Cliente"/>
+<form name="formCadastrarCliente">
+	<input  name = "nome" type="text" id = "nomeCliente" ng-model="cliente.nome" required/>
+	<label>Estado:</label>
+	<select ng-options="estado as estado.nomeEstado for estado in listaEstados" ng-model="cliente.estado">
+	</select>
+	<input type="button"  ng-click="inserirCliente()" value="Inserir Clisente"/>
 </form>

@@ -57,6 +57,20 @@ public class ClienteController {
 		
 	}
 	
+	@RequestMapping(method=RequestMethod.GET,value="/buscarCliente/{id}")
+	public ResponseEntity<Cliente> buscarUnicoClientePorId(@PathVariable Integer id){
+		
+		Cliente cliente = clienteService.buscarClientePorId(id);
+		
+		if(cliente != null) {
+			return new ResponseEntity<>(cliente,HttpStatus.OK);
+			
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
 	@RequestMapping(method=RequestMethod.PUT,value="/alterarCliente",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Cliente> alterarClientes(@RequestBody Cliente cliente){
 		
