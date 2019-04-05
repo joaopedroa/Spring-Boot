@@ -21,7 +21,7 @@ public class Cliente implements Serializable {
 
 	private String nome;
 	
-	@ManyToOne (fetch = FetchType.LAZY)
+	@OneToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "estado_id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Estado estado;
